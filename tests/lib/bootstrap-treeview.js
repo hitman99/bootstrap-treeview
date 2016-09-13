@@ -596,12 +596,21 @@
 					.append(node.text);
 			}
 
-			// Add tags as badges
+			// Add tags as Bootstrap labels
 			if (_this.options.showTags && node.tags) {
 				$.each(node.tags, function addTag(id, tag) {
+					var badge_text = null;
+					var type = null;
+					if(typeof tag == 'string'){
+						badge_text = tag;
+					}
+					else{
+						badge_text = tag.text;
+						type = tag.type;
+					}
 					treeItem
-						.append($(_this.template.badge)
-							.append(tag)
+						.append($(_this.template.label(type))
+							.append(badge_text)
 						);
 				});
 			}
@@ -692,7 +701,14 @@
 		indent: '<span class="indent"></span>',
 		icon: '<span class="icon"></span>',
 		link: '<a href="#" style="color:inherit;"></a>',
-		badge: '<span class="badge"></span>'
+		badge: '<span class="label label-default"></span>',
+		label: function(type){
+			var style = 'default';
+			if(type != null){
+				style = type;
+			}
+			return  '<span class="tree-badge pull-right label label-' + style + '"></span>';
+		}
 	};
 
 	Tree.prototype.css = '.treeview .list-group-item{cursor:pointer}.treeview span.indent{margin-left:10px;margin-right:10px}.treeview span.icon{width:12px;margin-right:5px}.treeview .node-disabled{color:silver;cursor:not-allowed}'

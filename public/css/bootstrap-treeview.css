@@ -35,3 +35,8 @@
 	color: silver;
 	cursor: not-allowed;
 }
+
+.tree-badge {
+	border-radius: 1em;
+	font-size: .83em;
+}
