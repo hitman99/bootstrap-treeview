@@ -1108,9 +1108,17 @@
 		Identifies a node from either a node id or object
 	*/
 	Tree.prototype.identifyNode = function (identifier) {
-		return ((typeof identifier) === 'number') ?
+		switch (typeof identifier){
+			case 'number':
+				return this.nodes[identifier];
+			case 'string':
+				break;
+			default:
+				return identifier;
+		}
+		/*return ((typeof identifier) === 'number') ?
 						this.nodes[identifier] :
-						identifier;
+						identifier;*/
 	};
 
 	/**
