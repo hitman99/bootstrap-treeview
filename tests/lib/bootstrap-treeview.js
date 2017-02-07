@@ -1112,6 +1112,11 @@
 			case 'number':
 				return this.nodes[identifier];
 			case 'string':
+				for(var ind in this.nodes){
+					if(typeof this.nodes[ind].name != 'undefined' && this.nodes[ind].name.match(new RegExp('^' + identifier + '$', 'i'))){
+						return this.nodes[ind];
+					}
+				}
 				break;
 			default:
 				return identifier;
