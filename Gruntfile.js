@@ -41,6 +41,7 @@ module.exports = function(grunt) {
           // copy latest libs to tests
           { expand: true, cwd: 'public/bower_components/jquery', src: 'jquery.js', dest: 'tests/lib/' },
           { expand: true, cwd: 'public/bower_components/bootstrap-datepicker/js', src: 'bootstrap-datepicker.js', dest: 'tests/lib/' },
+          { expand: true, cwd: 'public/bower_components/bootstrap/js/tooltip.js', src: 'tooltip.js', dest: 'tests/lib/' },
           // copy src to example
           { expand: true, cwd: 'src/css', src: '*', dest: 'public/css/' },
           { expand: true, cwd: 'src/js', src: '*', dest: 'public/js/' }

@@ -499,6 +499,7 @@
 
 		// Build tree
 		this.buildTree(this.tree, 0);
+        this.$wrapper.find('[data-toggle="node-tooltip"]').tooltip();
 	};
 
 	// Starting from the root node, and recursing down the
@@ -519,6 +520,11 @@
 				.addClass(node.searchResult ? 'search-result' : '') 
 				.attr('data-nodeid', node.nodeId)
 				.attr('style', _this.buildStyleOverride(node));
+			if(node.tooltip){
+                treeItem
+					.attr('data-toggle', 'node-tooltip')
+					.attr('title', node.tooltip);
+			}
 
 			// Add indent/spacer to mimic tree structure
 			for (var i = 0; i < (level - 1); i++) {
